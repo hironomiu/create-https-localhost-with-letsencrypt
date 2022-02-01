@@ -1,5 +1,9 @@
 # create-https-localhost-with-letsencrypt
 
+ローカルででHTTPSを利用するためドメイン（サブドメイン）にAレコードに`127.0.0.1`を割り振り、LetsencryptでDNS Challengeで証明書を発行する手順
+
+## 手順
+
 証明書発行用のdocker(ubuntu)コンテナの起動
 
 ```
