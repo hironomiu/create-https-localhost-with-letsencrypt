@@ -124,7 +124,7 @@ IMPORTANT NOTES:
 
 ## 動作確認
 
-`index.js`を作成し同じディレクトリに保存した`privkey.pem`,`fullchain.pem`を配置し`node index.js`で起動する。起動後ブラウザで`https://作成したドメイン:8443`にアクセスし`Listening HTTPS Server!!`が出力されれば成功
+[`index.js`](./example/index.js)を作成し同じディレクトリに保存した`privkey.pem`,`fullchain.pem`を配置し`node index.js`で起動する。起動後ブラウザで`https://作成したドメイン:8443`にアクセスし`Listening HTTPS Server!!`が出力されれば成功
 
 ```
 const https = require('https')
