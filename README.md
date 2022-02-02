@@ -121,3 +121,27 @@ IMPORTANT NOTES:
    also contain certificates and private keys obtained by Certbot so
    making regular backups of this folder is ideal.
 ```
+
+## 動作確認
+
+`index.js`を作成し同じディレクトリに保存した`privkey.pem`,`fullchain.pem`を配置し`node index.js`で起動する。起動後ブラウザで`https://作成したドメイン:8443`にアクセスし`Listening HTTPS Server!!`が出力されれば成功
+
+```
+const https = require('https')
+const fs = require('fs')
+const privKeyPath = './privkey.pem'
+const fullChainPath = './fullchain.pem'
+const httpsPort = 8443
+
+https
+  .createServer(
+    {
+      key: fs.readFileSync(privKeyPath),
+      cert: fs.readFileSync(fullChainPath),
+    },
+    (_, res) => res.end('Listening HTTPS Server!!')
+  )
+  .listen(httpsPort, () => {
+    console.log(`Listening HTTPS on :${httpsPort}`)
+  })
+```
