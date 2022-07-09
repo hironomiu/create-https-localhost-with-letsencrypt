@@ -65,6 +65,9 @@ Time zone:
 
 ```
 certbot --manual --preferred-challenges dns certonly -d hoge.fuga.piyo
+
+Enter email address (used for urgent renewal and security notices) (Enter 'c' to
+cancel): ☆☆Email 入力☆☆
 ```
 
 上記コマンドを進めるとDNSに対してTXTレコードの設定を要求されるので設定をする。`key`は`_acme-challenge`で始まるものを`value`には次行のもの(ここでは`agOHfGQHjK4QS48x0UbZCRB9PfpsK4ld3oUa6YaXPE0`)。TXTレコードが伝搬するまで待つ（30分ほどで伝搬したが適時確認すること）
@@ -84,6 +87,18 @@ Before continuing, verify the record is deployed.
 
 ```
 dig -t TXT _acme-challenge.hoge.fuga.piyo
+
+出力結果抜粋
+
+;; QUESTION SECTION:
+;_acme-challenge.hoge.fuga.piyo. IN TXT
+
+;; ANSWER SECTION:
+
+;; AUTHORITY SECTION:
+
+;; ADDITIONAL SECTION:
+
 ```
 
 成功した場合`fullchain.pem`,`privkey.pem`のPATHが表示されるのでcatなどで表示し適時保存し利用する
