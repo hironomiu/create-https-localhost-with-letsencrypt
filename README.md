@@ -160,3 +160,12 @@ https
     console.log(`Listening HTTPS on :${httpsPort}`)
   })
 ```
+
+## Nginx設定例
+
+`default.conf`に以下を記述し記述したパスにファイルを配置(`fullchain.pem` -> `cert.crt`,`cert.key` -> `cert.key`)
+
+```
+    ssl_certificate     /etc/nginx/ssl/cert.crt;
+    ssl_certificate_key /etc/nginx/ssl/cert.key;
+```
